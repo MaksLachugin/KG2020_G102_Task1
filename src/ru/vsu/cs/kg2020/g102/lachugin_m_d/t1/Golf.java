@@ -2,12 +2,20 @@ package ru.vsu.cs.kg2020.g102.lachugin_m_d.t1;
 
 import java.awt.*;
 
-public class golf {
-    public static void drawGolf(Graphics2D g, int weigth, int height) {
-        g.fillRect(0, 0, weigth, height);
+public class Golf implements Drawable {
+    private int weigth;
+    private int height;
+
+    public Golf(int weigth, int height) {
+        this.weigth = weigth;
+        this.height = height;
+    }
+
+    public void draw(Graphics2D g) {
         g.setColor(Color.blue);
         logoW(g, 10, 10, 500, 500, Color.GRAY, Color.LIGHT_GRAY);
     }
+
     public static void logoW(Graphics2D g, int x, int y, int weigth, int height, Color Background, Color Logo) {
         g.setColor(Logo);
         g.fillOval(x, y, weigth, height);
