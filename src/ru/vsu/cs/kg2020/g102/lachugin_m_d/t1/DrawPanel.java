@@ -8,7 +8,8 @@ public class DrawPanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         Graphics2D gr = (Graphics2D) g;
-        Golf golf = new Golf(gr, 10,10,800, 600);
+//      height * 1.2 = weight
+        Golf golf = new Golf(gr, 10, 10, 720, 600);
         golf.draw(gr);
 
     }
