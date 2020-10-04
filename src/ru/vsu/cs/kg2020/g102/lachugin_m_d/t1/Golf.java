@@ -38,8 +38,8 @@ public class Golf implements Drawable {
         double xSr = xPoz / 2;
         double yPoz = 122;
         // основные точки корпуса
-        int[] arrX = new int[]{28, 35, 38, 41, 43, 49, 63, 67};
-        int[] arrY = new int[]{2, 3, 4, 7, 11, 25, 57, 66};
+        int[] arrX = new int[]{28, 35, 38, 41, 43, 49, 63, 67, 68, 68, 67, 63, 58};
+        int[] arrY = new int[]{2, 3, 4, 7, 11, 25, 57, 66, 70, 83, 85, 87, 88};
         //
         for (int i = 0; i < arrX.length; i++) {
             p.addPoint(x + (int) (weigth / xPoz * (xSr - arrX[i])), y + (int) (height / yPoz * arrY[i]));
