@@ -34,12 +34,12 @@ public class Golf implements Drawable {
     private void body() {
         g.setColor(Color.darkGray);
         Polygon p = new Polygon();
-        double xPoz = 6.8;
+        double xPoz = 140;
         double xSr = xPoz / 2;
-        double yPoz = 5.7;
+        double yPoz = 122;
         // основные точки корпуса
-        double[] arrX = new double[]{1.8, 1.9, 2.4, 2.5, 2.9, 2.9, 2.5, 2.3};
-        double[] arrY = new double[]{0.2, 0.3, 1.5, 1.7, 3.0, 3.8, 4.8, 4.9};
+        int[] arrX = new int[]{28, 35, 38, 41, 43, 49, 63, 67};
+        int[] arrY = new int[]{2, 3, 4, 7, 11, 25, 57, 66};
         //
         for (int i = 0; i < arrX.length; i++) {
             p.addPoint(x + (int) (weigth / xPoz * (xSr - arrX[i])), y + (int) (height / yPoz * arrY[i]));

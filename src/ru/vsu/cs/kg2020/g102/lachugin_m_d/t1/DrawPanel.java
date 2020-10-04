@@ -10,7 +10,7 @@ public class DrawPanel extends JPanel {
         Graphics2D gr = (Graphics2D) g;
 //      height * 1.2 = weight
         int height = 300;
-        Golf golf = new Golf(gr, 10, 10, (int)(1.2 * height), height);
+        Golf golf = new Golf(gr, 0, 0, (int)(1.2 * height), height);
         golf.draw(gr);
 
     }
