@@ -12,18 +12,24 @@ public class Golf implements Drawable {
     private int weigth;
     private int height;
     private Graphics2D g;
+    private Color color;
+    private drawMirrorPolygon drawMirror;
 
-    public Golf(Graphics g, int x, int y, int weigth, int height) {
+    public Golf(int x, int y, int weigth, int height, Color color) {
         // height * 1.2 = weight
         this.x = x;
         this.y = y;
-        this.g = (Graphics2D) g;
         this.weigth = weigth;
         this.height = height;
-
+        this.color = color;
+        int xPoz = 140;
+        int yPoz = 122;
+        drawMirror = new drawMirrorPolygon(g, x, y, weigth, height, xPoz, yPoz);
+        drawMirror.setColor(color);
     }
 
     public void draw(Graphics2D g) {
+        this.g = (Graphics2D) g;
         g.drawRect(x, y, weigth, height);
         g.setStroke(new BasicStroke(3));
 
@@ -32,25 +38,35 @@ public class Golf implements Drawable {
     }
 
     private void body() {
-        g.setColor(Color.darkGray);
-        Polygon p = new Polygon();
-        double xPoz = 140;
-        double xSr = xPoz / 2;
-        double yPoz = 122;
+
         // основные точки корпуса
         int[] arrX = new int[]{28, 35, 38, 41, 43, 49, 63, 67, 68, 68, 67, 63, 58};
         int[] arrY = new int[]{2, 3, 4, 7, 11, 25, 57, 66, 70, 83, 85, 87, 88};
-        //
-        for (int i = 0; i < arrX.length; i++) {
-            p.addPoint(x + (int) (weigth / xPoz * (xSr - arrX[i])), y + (int) (height / yPoz * arrY[i]));
-        }
-        for (int i = arrX.length - 1; i > -1; i--) {
-            p.addPoint(x + (int) (weigth / xPoz * (xSr + arrX[i])), y + (int) (height / yPoz * arrY[i]));
-        }
-        g.drawPolygon(p);
-//        g.drawRoundRect(x + (int) (weigth / xPoz * (xSr - arrX[0] - 0.05)), y + (int) (height / yPoz * arrY[0]), (int) ((weigth / xPoz * (xSr + arrX[0] + 0.02)) - (weigth / xPoz * (xSr - arrX[0] - 0.02))), 20, 20, 20);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
+        windshield();
+        hood();
+
+
     }
 
-    private void logoW(int x, int y, int weigth, int height, Color Background, Color Logo) {
+    private void windshield() {
+        int[] arrX = new int[]{28, 35, 37, 40, 42, 49, 50, 49};
+        int[] arrY = new int[]{6, 7, 8, 10, 14, 31, 35, 36};
+        drawMirror.setColor(Color.cyan);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
     }
+
+    private void hood() {
+        int[] arrX = new int[]{49, 51, 59, 60};
+        int[] arrY = new int[]{40, 42, 63, 68};
+        drawMirror.setColor(Color.green);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
+        arrX = new int[]{10, 12};
+        arrY = new int[]{};
+
+    }
+
 }
