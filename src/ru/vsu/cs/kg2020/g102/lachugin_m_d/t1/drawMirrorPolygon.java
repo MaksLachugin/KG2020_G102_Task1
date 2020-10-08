@@ -3,13 +3,12 @@ package ru.vsu.cs.kg2020.g102.lachugin_m_d.t1;
 import java.awt.*;
 
 public class drawMirrorPolygon implements Drawable {
-    private Graphics g;
     private Polygon p;
     private Color color = Color.RED;
     private int weigth, height, xPoz, yPoz, xSr, x, y;
 
-    public drawMirrorPolygon(Graphics graphics, int x, int y, int weight, int height, int xPoz, int yPoz) {
-        this.g = graphics;
+    public drawMirrorPolygon(int x, int y, int weight, int height, int xPoz, int yPoz) {
+
         this.weigth = weight;
         this.height = height;
         this.xPoz = xPoz;
@@ -21,7 +20,7 @@ public class drawMirrorPolygon implements Drawable {
     public void setColor(Color color){
         this.color = color;
     }
-    public void setPolygon(int[] arrX, int[] arrY) {
+    public void setPolygon(double[] arrX, double[] arrY) {
         this.p = new Polygon();
 
         for (int i = 0; i < arrX.length; i++) {
