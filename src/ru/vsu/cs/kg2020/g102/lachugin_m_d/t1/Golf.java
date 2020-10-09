@@ -55,6 +55,13 @@ public class Golf implements Drawable {
         drawMirror.draw(g);
     }
 
+    private void frontBumper(){
+        double[] arrX = new double[]{};
+        double[] arrY = new double[]{};
+        drawMirror.setColor(Color.cyan);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
+    }
     private void hood() {
         double[] arrX = new double[]{49, 51, 59, 60};
         double[] arrY = new double[]{40, 42, 63, 68};
