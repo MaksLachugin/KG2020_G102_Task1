@@ -11,6 +11,7 @@ public class Golf implements Drawable {
     private Graphics2D g;
     private Color color;
     private drawMirrorPolygon drawMirror;
+    private drawMirrorDuo drawMirrorDuo;
 
     public Golf(int x, int y, int weigth, int height, Color color) {
         // height * 1.2 = weight
@@ -22,6 +23,7 @@ public class Golf implements Drawable {
         int xPoz = 140;
         int yPoz = 122;
         drawMirror = new drawMirrorPolygon(x, y, weigth, height, xPoz, yPoz);
+        drawMirrorDuo = new drawMirrorDuo(x, y, weigth, height, xPoz, yPoz);
         drawMirror.setColor(color);
     }
 
@@ -42,35 +44,43 @@ public class Golf implements Drawable {
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
         windshield();
-//        hood();
+        hood();
 
 
     }
 
     private void windshield() {
-        double[] arrX = new double[]{7, 14, 21, 28, 35, 36, 37, 38, 39, 40.5, 41.5, 48,49,49.5,49,48,47,14};
-        double[] arrY = new double[]{5.5, 5.7, 5.8, 6, 6.5, 6.7, 7, 7.7, 9, 11, 14,30,32.5,34,35,36,36.5,37};
+        double[] arrX = new double[]{7, 14, 21, 28, 35, 36, 37, 38, 39, 40.5, 41.5, 48, 49, 49.5, 49, 48, 47, 14};
+        double[] arrY = new double[]{5.5, 5.7, 5.8, 6, 6.5, 6.7, 7, 7.7, 9, 11, 14, 30, 32.5, 34, 35, 36, 36.5, 37};
         drawMirror.setColor(Color.cyan);
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
     }
 
-    private void frontBumper(){
+    private void hood() {
+        double[] arrX = new double[]{7, 28, 30, 48, 50, 54, 57.5, 60, 60.5, 60.5,};
+        double[] arrY = new double[]{39.5, 40, 39, 39, 40, 49, 56, 63, 65, 69,};
+        drawMirror.setColor(Color.green);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
+        sieve();
+    }
+
+    private void sieve() {
+        double[] arrX = new double[]{4.2, 5.2, 5.5, 4.5};
+        double[] arrY = new double[]{41, 41, 43 , 43};
+        drawMirrorDuo.setColor(Color.BLACK);
+        drawMirrorDuo.setPolygon(arrX, arrY);
+        drawMirrorDuo.draw(g);
+
+    }
+    private void frontBumper() {
         double[] arrX = new double[]{};
         double[] arrY = new double[]{};
         drawMirror.setColor(Color.cyan);
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
     }
-    private void hood() {
-        double[] arrX = new double[]{49, 51, 59, 60};
-        double[] arrY = new double[]{40, 42, 63, 68};
-        drawMirror.setColor(Color.green);
-        drawMirror.setPolygon(arrX, arrY);
-        drawMirror.draw(g);
-        arrX = new double[]{10, 12};
-        arrY = new double[]{};
 
-    }
 
 }
