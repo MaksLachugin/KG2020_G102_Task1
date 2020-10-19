@@ -35,13 +35,13 @@ public class drawMirrorDuo implements Drawable {
             this.p2 = new Polygon();
 
             for (int i = 0; i < arrX.length; i++) {
-                p1.addPoint(x + (int) (weigth / xPoz * (xSr - arrX[i] - t)), y + (int) (height / yPoz * arrY[i]));
+                p1.addPoint(x + (int) (weigth / xPoz * (xSr - arrX[i] - t * 2)), y + (int) (height / yPoz * arrY[i]));
             }
             for (int i = arrX.length - 1; i > -1; i--) {
-                p2.addPoint(x + (int) (weigth / xPoz * (xSr + arrX[i] + t)), y + (int) (height / yPoz * arrY[i]));
+                p2.addPoint(x + (int) (weigth / xPoz * (xSr + arrX[i] + t * 2)), y + (int) (height / yPoz * arrY[i]));
             }
-            p[t*2+1] = p1;
-            p[t*2] = p2;
+            p[t * 2 + 1] = p1;
+            p[t * 2] = p2;
         }
     }
 
@@ -49,10 +49,13 @@ public class drawMirrorDuo implements Drawable {
     @Override
     public void draw(Graphics2D g) {
         g.setColor(color);
-        for (Polygon pol: p
-             ) {
+        for (Polygon pol : p
+        ) {
             if (p != null)
-            g.drawPolygon(pol);
+                g.setColor(Color.GRAY);
+                g.fillPolygon(pol);
+                g.setColor(Color.darkGray);
+                g.drawPolygon(pol);
         }
 
 

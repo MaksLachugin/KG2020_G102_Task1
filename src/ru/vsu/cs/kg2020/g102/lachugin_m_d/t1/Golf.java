@@ -88,7 +88,16 @@ public class Golf implements Drawable {
     }
 
     private void rad() {
-        g.drawRect(0, 0, pointer.getXer(68), pointer.getYer(81));
+
+        int x = pointer.getXer(65.5);
+        int y = pointer.getYer(70);
+        int weight = pointer.getXer(-65.5) - x;
+        int height = pointer.getYer(83) - y;
+        int arcWeight = pointer.getXer(63) - x;
+        int arcHeight = pointer.getYer(72) - y;
+        Lattice lattice = new Lattice(x, y, weight, height, arcWeight, arcHeight, pointer.getXer(63) - pointer.getXer(66), pointer.getYer(70));
+
+        lattice.draw(g);
     }
 
 
