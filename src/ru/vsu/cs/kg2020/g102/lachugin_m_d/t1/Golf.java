@@ -12,6 +12,7 @@ public class Golf implements Drawable {
     private Color color;
     private drawMirrorPolygon drawMirror;
     private drawMirrorDuo drawMirrorDuo;
+    Pointer pointer;
 
     public Golf(int x, int y, int weigth, int height, Color color) {
         // height * 1.2 = weight
@@ -25,6 +26,7 @@ public class Golf implements Drawable {
         drawMirror = new drawMirrorPolygon(x, y, weigth, height, xPoz, yPoz);
         drawMirrorDuo = new drawMirrorDuo(x, y, weigth, height, xPoz, yPoz);
         drawMirror.setColor(color);
+        pointer = new Pointer(x, y, weigth, height, xPoz, yPoz);
     }
 
     public void draw(Graphics2D g) {
@@ -45,6 +47,7 @@ public class Golf implements Drawable {
         drawMirror.draw(g);
         windshield();
         hood();
+        rad();
 
 
     }
@@ -68,18 +71,24 @@ public class Golf implements Drawable {
 
     private void sieve() {
         double[] arrX = new double[]{4.2, 4.9, 5.2, 4.5};
-        double[] arrY = new double[]{41, 41, 42.5 , 42.5};
+        double[] arrY = new double[]{41, 41, 42.5, 42.5};
         drawMirrorDuo.setColor(Color.BLACK);
         drawMirrorDuo.setPolygon(arrX, arrY);
         drawMirrorDuo.draw(g);
 
     }
+
     private void frontBumper() {
-        double[] arrX = new double[]{};
-        double[] arrY = new double[]{};
-        drawMirror.setColor(Color.cyan);
+        double[] arrX = new double[]{7, 28, 30, 48, 50, 54, 57.5, 60, 60.5, 60.5,};
+        double[] arrY = new double[]{39.5, 40, 39, 39, 40, 49, 56, 63, 65, 69,};
+        drawMirror.setColor(Color.green);
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
+
+    }
+
+    private void rad() {
+        g.drawRect(0, 0, pointer.getXer(68), pointer.getYer(81));
     }
 
 
