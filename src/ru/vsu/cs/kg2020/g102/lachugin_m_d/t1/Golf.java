@@ -67,8 +67,8 @@ public class Golf implements Drawable {
     }
 
     private void sieve() {
-        double[] arrX = new double[]{4.2, 5.2, 5.5, 4.5};
-        double[] arrY = new double[]{41, 41, 43 , 43};
+        double[] arrX = new double[]{4.2, 4.9, 5.2, 4.5};
+        double[] arrY = new double[]{41, 41, 42.5 , 42.5};
         drawMirrorDuo.setColor(Color.BLACK);
         drawMirrorDuo.setPolygon(arrX, arrY);
         drawMirrorDuo.draw(g);
