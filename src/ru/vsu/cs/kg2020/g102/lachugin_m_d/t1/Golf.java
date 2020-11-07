@@ -48,6 +48,7 @@ public class Golf implements Drawable {
         windshield();
         hood();
         rad();
+        frontBumper();
 
 
     }
@@ -79,8 +80,8 @@ public class Golf implements Drawable {
     }
 
     private void frontBumper() {
-        double[] arrX = new double[]{7, 28, 30, 48, 50, 54, 57.5, 60, 60.5, 60.5,};
-        double[] arrY = new double[]{39.5, 40, 39, 39, 40, 49, 56, 63, 65, 69,};
+        double[] arrX = new double[]{49, 56, 63, 65,67, 69, 69.2, 69.4, 69.2, 69,68, 63};
+        double[] arrY = new double[]{89, 88.5, 88,87,84, 90, 91, 92, 93, 94, 96, 99};
         drawMirror.setColor(Color.green);
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
