@@ -34,7 +34,10 @@ public class Lattice implements Drawable {
         g.drawRoundRect(x, y, weight, height, arcWeight, arcHeight);
         g.setColor(Color.YELLOW);
         g.fillOval(x + lightX, lightY, height, height);
-        g.fillOval( weight +x - lightX - height, lightY, height, height);
+        g.fillOval(weight + x - lightX - height, lightY, height, height);
+        g.setColor(Color.orange);
+        g.drawOval(x + lightX, lightY, height, height);
+        g.drawOval(weight + x - lightX - height, lightY, height, height);
     }
 
 

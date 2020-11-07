@@ -39,7 +39,7 @@ public class Golf implements Drawable {
     }
 
     private void body() {
-
+        wheels();
         // основные точки корпуса
         double[] arrX = new double[]{23, 28, 33, 36, 40, 41, 42, 43, 45, 49, 52.5, 56, 59, 63, 64.5, 65.5, 66.5, 67, 67.5, 68, 67.8, 67.5, 67, 66, 59, 57, 49, 42, 35, 28};
         double[] arrY = new double[]{2, 2.5, 3, 3.5, 6, 7, 9.5, 12, 16.5, 25.5, 33.5, 41.5, 48, 57, 62, 64.5, 66.5, 68, 72.5, 76, 78, 81, 84, 86, 101, 103, 105, 106, 107, 107.5};
@@ -76,20 +76,18 @@ public class Golf implements Drawable {
         drawMirrorDuo.setColor(Color.BLACK);
         drawMirrorDuo.setPolygon(arrX, arrY);
         drawMirrorDuo.draw(g);
-
     }
 
     private void frontBumper() {
-        double[] arrX = new double[]{49, 56, 63, 65,67, 69, 69.2, 69.4, 69.2, 69,68, 63};
-        double[] arrY = new double[]{89, 88.5, 88,87,84, 90, 91, 92, 93, 94, 96, 99};
-        drawMirror.setColor(Color.green);
+        double[] arrX = new double[]{49, 56, 63, 65, 67, 69, 69.2, 69.4, 69.2, 69, 68, 63};
+        double[] arrY = new double[]{89, 88.5, 88, 87, 84, 90, 91, 92, 93, 94, 96, 99};
+        drawMirror.setColor(Color.gray);
         drawMirror.setPolygon(arrX, arrY);
         drawMirror.draw(g);
 
     }
 
     private void rad() {
-
         int x = pointer.getXer(65.5);
         int y = pointer.getYer(70);
         int weight = pointer.getXer(-65.5) - x;
@@ -97,9 +95,35 @@ public class Golf implements Drawable {
         int arcWeight = pointer.getXer(63) - x;
         int arcHeight = pointer.getYer(72) - y;
         Lattice lattice = new Lattice(x, y, weight, height, arcWeight, arcHeight, pointer.getXer(63) - pointer.getXer(66), pointer.getYer(70));
-
         lattice.draw(g);
     }
 
+    private void wheels() {
+        int x = pointer.getXer(68);
+        int y = pointer.getYer(91);
+        int weight = pointer.getXer(49) - x;
+        int height = pointer.getYer(110) - y;
+        int arcWeight = pointer.getXer(63) - x;
+        int arcHeight = pointer.getYer(105) - y;
+        g.setColor(Color.darkGray);
+        g.fillRoundRect(x, y, weight, height, arcWeight, arcHeight);
+        g.setColor(Color.black);
+        g.drawRoundRect(x, y, weight, height, arcWeight, arcHeight);
+        x = pointer.getXer(-49);
+
+        g.setColor(Color.darkGray);
+        g.fillRoundRect(x, y, weight, height, arcWeight, arcHeight);
+        g.setColor(Color.black);
+        g.drawRoundRect(x, y, weight, height, arcWeight, arcHeight);
+    }
+
+    private void lip() {
+        double[] arrX = new double[]{28, 42};
+        double[] arrY = new double[]{106, 105};
+        drawMirror.setColor(Color.green);
+        drawMirror.setPolygon(arrX, arrY);
+        drawMirror.draw(g);
+        sieve();
+    }
 
 }
